@@ -3,16 +3,16 @@ package com.group.libraryapp.service.user;
 import com.group.libraryapp.dto.User.request.UserCreateRequest;
 import com.group.libraryapp.dto.User.request.UserUpdateRequest;
 import com.group.libraryapp.dto.User.response.UserResponse;
-import com.group.libraryapp.repository.user.UserRepository;
+import com.group.libraryapp.repository.user.UserJdbcRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
-public class UserService {
-    private final UserRepository userRepository;
+public class UserServiceV1 {
+    private final UserJdbcRepository userRepository;
 
-    public UserService(JdbcTemplate jdbcTemplate) {
-        this.userRepository = new UserRepository(jdbcTemplate);
+    public UserServiceV1(JdbcTemplate jdbcTemplate) {
+        this.userRepository = new UserJdbcRepository(jdbcTemplate);
     }
 
     public void updateUser(UserUpdateRequest userUpdateRequest){
