@@ -21,4 +21,8 @@ public class Book {
 
     public Book() {
     }
+
+    public String getName() {
+        return name;
+    }
 }
