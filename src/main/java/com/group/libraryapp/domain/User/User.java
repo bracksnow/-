@@ -1,4 +1,4 @@
-package com.group.libraryapp.domain;
+package com.group.libraryapp.domain.User;
 
 import javax.persistence.*;
 

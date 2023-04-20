@@ -1,11 +1,9 @@
 package com.group.libraryapp.Controller.User;
 
-import com.group.libraryapp.domain.User;
 import com.group.libraryapp.dto.User.request.UserCreateRequest;
 import com.group.libraryapp.dto.User.request.UserUpdateRequest;
 import com.group.libraryapp.dto.User.response.UserResponse;
 import com.group.libraryapp.service.user.UserServiceV2;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

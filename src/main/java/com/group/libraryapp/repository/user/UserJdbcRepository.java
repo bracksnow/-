@@ -1,6 +1,6 @@
 package com.group.libraryapp.repository.user;
 
-import com.group.libraryapp.domain.User;
+import com.group.libraryapp.domain.User.User;
 import com.group.libraryapp.dto.User.response.UserResponse;
 import org.springframework.jdbc.core.JdbcTemplate;
 
