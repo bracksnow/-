@@ -1,14 +1,21 @@
 spring:
-  datasource:
-    url: "jdbc:mysql://localhost/library"
-    username: "root"
-    password: ""
-    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: none
-    properties:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/stock_example
+    username: root
+    password: 973P49x1@6016
+    hikari:
+      maximum-pool-size: 40
+logging:
+  level:
+    org:
       hibernate:
-        show-sql: true
-        format-sql: true
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

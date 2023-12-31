@@ -1,13 +1,13 @@
-package com.group.libraryapp;
+package com.group.stockapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LibraryApplication {
+public class StockApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LibraryApplication.class, args);
+		SpringApplication.run(StockApplication.class, args);
 	}
 
 }
