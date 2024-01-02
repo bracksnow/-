@@ -17,8 +17,10 @@ public class StockService {
         this.stockRepository = stockRepository;
     }
 
-    @Transactional
-    public void decrease(Long id, Long quantity){
+    //@Transactional
+    //synchronized 사용할 경우 해당 코드 블럭은 1개의 쓰레드만 접근
+    //다만 메서드가 종료하고 커밋하기 이전 race condition이 발생할 가능성 존재
+    public synchronized void decrease(Long id, Long quantity){
 
         Stock stock = stockRepository.findById(id).orElseThrow();
         stock.decrease(quantity);
