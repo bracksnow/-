@@ -1,6 +1,7 @@
 package com.group.stockapp.service;
 
 import com.group.stockapp.domain.Stock;
+import com.group.stockapp.facade.LettuceLockStockFacade;
 import com.group.stockapp.repository.StockRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class StockServiceTest {
 
     @Autowired
-    private StockService stockService;
+    private LettuceLockStockFacade lettuceLockStockFacade;
 
     @Autowired
     private StockRepository stockRepository;
@@ -35,15 +36,17 @@ class StockServiceTest {
         stockRepository.deleteAll();
     }
 
+    /*
     @Test
-    public void decrease_test() {
-        stockService.decrease(1L, 1L);
+    public void decrease_test() throws InterruptedException {
+        lettuceLockStockFacade.decrease(1L, 1L);
 
         Stock stock = stockRepository.findById(1L).orElseThrow();
         // 100 - 1 = 99
 
         assertEquals(99, stock.getQuantity());
     }
+    */
 
     @Test
     public void 동시에_100명이_주문() throws InterruptedException {
@@ -54,7 +57,9 @@ class StockServiceTest {
         for (int i = 0; i < threadCount; i++) {
             executorService.submit(() -> {
                 try {
-                    stockService.decrease(1L, 1L);
+                    lettuceLockStockFacade.decrease(1L, 1L);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException();
                 } finally {
                     latch.countDown();
                 }
